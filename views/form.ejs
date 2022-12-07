@@ -2,15 +2,86 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>App</title>
+    <title>Karácsonyi ajándék csomagok</title>
+    <style>
+      *{
+        border: 0;
+        list-style-type: none;
+        margin: 0;
+        outline: none;
+        padding: 0;
+      }
+      html,body{
+        height: 100px;
+      }
+      body{
+          background: url(https://media.istockphoto.com/id/1170759441/hu/fot%C3%B3/h%C3%A1zi-hot-chocolate-b%C3%B6gre-%C3%A9s-m%C3%A9zeskal%C3%A1cs-cookie-k-a-kar%C3%A1csonyi-asztalon.jpg?s=612x612&w=0&k=20&c=e2AfKIE_zBAfU02aJY3NMLydROeP34F4hYE0QYEf0hY=) no-repeat center center fixed;
+          background-size: cover;
+          font-family: 'Open Sans', 'sans-serif';
+          font-size: 85%;
+      }
+      #christmas{
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        height: 320px;
+        left:calc(58% - 160px);
+        position: absolute;
+        top:calc(58 - 160px);
+        width: 300px;
+      }
+      #christmas #sub{
+        background-color: #980;
+        color: #fff;
+        margin-top: 28px;
+      }
+      #christmas #sub:hover{
+        cursor: pointer;
+        text-decoration: underline;
+
+      }
+    </style>
+
+
+
+
+
+
   </head>
   <body>
+    <div class="slidecontainer" id="christmas">
+      <input type="range" step="1" min="" max="18" value="50">
+      <label for="kor">Korosztály</label>
+
     <form method="post">
-        <label for="nev">
-            <input type="text" name="nev">
-        </label>
         <input type="color" name="color">
         <button type="submit">Küldés</button>
+        <form action="post">
+          <label for="csomagolas">Csomagolás</label>
+          <select name="csomagolas">
+            <option value="ajandekzacsko">Ajándék zacskó</option>
+            <option value="csomagolopapir">Csomagoló papír</option>
+            <option value="ajandekdoboz">Ajándék doboz</option>
+          </select>
+
+          <form method="post" action="/Tests/Post/">      
+            <fieldset>      
+                <legend>Milyen csokit szeretnél</legend>      
+                <input type="checkbox" name="tartalom" value="Milka">Milka<br>      
+                <input type="checkbox" name="tartalom" value="Mogyoró">Mogyoró<br>      
+                <input type="checkbox" name="tartalom" value="Oreó">Oreó<br> 
+                <input type="checkbox" name="tartalom" value="Karamella">Karamella<br>      
+                <input type="checkbox" name="tartalom" value="Erdei gyümölcs">Erdei  gyümölcs<br>      
+                <input type="checkbox" name="tartalom" value="Drazsé">Drazsé<br>   
+                <input type="checkbox" name="tartalom" value="Truffle">Truffle<br>      
+                <input type="checkbox" name="tartalom" value="Barack">Barack<br>      
+                <br>            
+            </fieldset>      
+        </form>
+        <textarea placeholder="Írd le még a kívánságodat"cols="50" name="uzenet" form="usrform">
+          </textarea>
+          <input type="submit"  id="sub"  value="Submit"/>
     </form>
+    </form>
+    </div>
   </body>
 </html>
